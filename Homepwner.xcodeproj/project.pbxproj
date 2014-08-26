@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4720E09F19AD12B500D93204 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4720E09E19AD12B500D93204 /* HeaderView.xib */; };
 		47E4F7C819A6B04E00CAFC41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E4F7C719A6B04E00CAFC41 /* Foundation.framework */; };
 		47E4F7CA19A6B04E00CAFC41 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E4F7C919A6B04E00CAFC41 /* CoreGraphics.framework */; };
 		47E4F7CC19A6B04E00CAFC41 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E4F7CB19A6B04E00CAFC41 /* UIKit.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4720E09E19AD12B500D93204 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		47E4F7C419A6B04E00CAFC41 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E4F7C719A6B04E00CAFC41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		47E4F7C919A6B04E00CAFC41 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -118,6 +120,7 @@
 			children = (
 				47E4F7F619A6B1AD00CAFC41 /* ItemsViewController.h */,
 				47E4F7F719A6B1AD00CAFC41 /* ItemsViewController.m */,
+				4720E09E19AD12B500D93204 /* HeaderView.xib */,
 				47E4F7F919A6B42400CAFC41 /* Item.h */,
 				47E4F7FA19A6B42400CAFC41 /* Item.m */,
 				47E4F7FC19A6B4B600CAFC41 /* ItemStore.h */,
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4720E09F19AD12B500D93204 /* HeaderView.xib in Resources */,
 				47E4F7D219A6B04E00CAFC41 /* InfoPlist.strings in Resources */,
 				47E4F7DA19A6B04E00CAFC41 /* Images.xcassets in Resources */,
 			);
@@ -455,6 +459,7 @@
 				47E4F7F219A6B04F00CAFC41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47E4F7F319A6B04F00CAFC41 /* Build configuration list for PBXNativeTarget "HomepwnerTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +468,7 @@
 				47E4F7F519A6B04F00CAFC41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

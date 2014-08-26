@@ -54,4 +54,25 @@
     
     return item;
 }
+- (void)removeItem:(Item *)item
+{
+    [self.privateItems removeObjectIdenticalTo:item];
+}
+
+- (void)moveItemAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex
+{
+    if (fromIndex == toIndex) {
+        return;
+    }
+    // Get pointer to jbect being moved so can re-insert it
+    Item *item = self.privateItems[fromIndex];
+    
+    // Remove item from array
+    [self.privateItems removeObjectAtIndex:fromIndex];
+    
+    // Insert item in array at new location
+    [self.privateItems insertObject:item atIndex:toIndex];
+    
+}
+
 @end
