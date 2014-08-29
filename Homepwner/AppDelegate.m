@@ -16,8 +16,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Place table view in window hierachy
-    ItemsViewController *itemViewController = [[ItemsViewController alloc] init];
-    self.window.rootViewController = itemViewController;
+    ItemsViewController *itemsViewController = [[ItemsViewController alloc] init];
+    
+    // Create instance of UINavigationController contained itemsviewcontroller
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+    
+    // Navtatgion controllers view in window hierachy
+    self.window.rootViewController = navController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
