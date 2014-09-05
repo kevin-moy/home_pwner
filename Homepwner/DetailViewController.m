@@ -125,4 +125,42 @@
     self.navigationItem.title = item.itemName;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    UIImageView *iv = [[UIImageView alloc] initWithImage:nil];
+    
+    // contentMode of image view in XIB was aspect fit
+    iv.contentMode = UIViewContentModeScaleAspectFit;
+    
+    // Do not produce translated constraint for this view
+    iv.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // Image view was subview of view
+    [self.view addSubview:iv];
+    
+    // Image view was pointed to by imageView property
+    self.imageView = iv;
+
+    NSDictionary *nameMap = @{@"imageView": self.imageView,
+                              @"dateLabel": self.dateLabel,
+                              @"toolbar": self.toolbar};
+    
+    // imageView is 0 pts from superview at left and right edges
+    NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|" options:0 metrics:nil views:nameMap];
+    
+    // imageView 8 pts from datelabel at top edge
+    
+    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[dateLabel]-[imageView]-[toolbar]" options:0 metrics:nil views:nameMap];
+    
+    [self.view addConstraints:horizontalConstraints];
+    [self.view addConstraints:verticalConstraints];
+    
+    // Set vertical priorities to be less than other subviews
+    [self.imageView setContentHuggingPriority:200 forAxis:UILayoutConstraintAxisVertical];
+    [self.imageView setContentCompressionResistancePriority:700 forAxis:UILayoutConstraintAxisVertical];
+    
+}
+
 @end

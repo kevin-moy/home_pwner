@@ -112,9 +112,9 @@
                 <constraint firstItem="rZZ-YV-Hgr" firstAttribute="top" secondItem="3o5-YI-tRv" secondAttribute="bottom" constant="25" id="7yC-3v-8zT"/>
                 <constraint firstAttribute="trailing" secondItem="KAh-P5-3i1" secondAttribute="trailing" constant="20" id="AZj-cf-1DG"/>
                 <constraint firstItem="KAh-P5-3i1" firstAttribute="trailing" secondItem="X5B-L5-7m6" secondAttribute="trailing" id="BWB-gm-7LV"/>
-                <constraint firstItem="ge7-FM-o5D" firstAttribute="baseline" secondItem="eeQ-gM-K0w" secondAttribute="baseline" id="C3f-hU-sr0"/>
                 <constraint firstItem="ge7-FM-o5D" firstAttribute="leading" secondItem="rZZ-YV-Hgr" secondAttribute="leading" id="FqV-F2-H1X"/>
                 <constraint firstItem="sqC-rj-YmO" firstAttribute="trailing" secondItem="eeQ-gM-K0w" secondAttribute="trailing" id="G9y-0u-w6U"/>
+                <constraint firstItem="ge7-FM-o5D" firstAttribute="centerY" secondItem="eeQ-gM-K0w" secondAttribute="centerY" constant="-1.5" id="Pe9-4L-dUf"/>
                 <constraint firstItem="rZZ-YV-Hgr" firstAttribute="baseline" secondItem="X5B-L5-7m6" secondAttribute="baseline" id="Vba-Fp-rao"/>
                 <constraint firstItem="Vbj-sH-tQh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VtJ-bc-gHb"/>
                 <constraint firstItem="KAh-P5-3i1" firstAttribute="leading" secondItem="3o5-YI-tRv" secondAttribute="trailing" constant="20" id="Zr9-tL-1Vn"/>
