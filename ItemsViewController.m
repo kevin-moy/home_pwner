@@ -71,13 +71,27 @@
     // Create new item and add to store
     Item *newItem = [[ItemStore sharedStore] createItem];
     
-    // Figure out where item is in the array
-    NSInteger lastRow = [[[ItemStore sharedStore] allItems] indexOfObject:newItem];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initForNewItem:YES];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    detailViewController.item = newItem;
+    
+    detailViewController.dimissBlock = ^{
+        [self.tableView reloadData];
+    };
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    [self presentViewController:navController animated:YES completion:NULL];
+    
+    // Figure out where item is in the array
+   // NSInteger lastRow = [[[ItemStore sharedStore] allItems] indexOfObject:newItem];
+    
+   // NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
     // Insert a new row
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    //[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     
 }
 
@@ -101,7 +115,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailViewController *detailViewController = [[DetailViewController alloc] init];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initForNewItem:NO];
     
     NSArray *items = [[ItemStore sharedStore] allItems];
     Item *selectedItem = items[indexPath.row];
