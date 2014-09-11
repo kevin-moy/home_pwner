@@ -53,6 +53,8 @@
 {
     return [self.privateItems copy];
 }
+
+// Create a new item that user can change
 - (Item *)createItem
 {
     Item *item = [[Item alloc] init];
@@ -74,7 +76,7 @@
     if (fromIndex == toIndex) {
         return;
     }
-    // Get pointer to jbect being moved so can re-insert it
+    // Get pointer to object being moved so can re-insert it
     Item *item = self.privateItems[fromIndex];
     
     // Remove item from array

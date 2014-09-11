@@ -10,10 +10,14 @@
 #import "ItemStore.h"
 #import "Item.h"
 #import "DetailViewController.h"
+#import "ItemCell.h"
+#import "ImageStore.h"
+#import "ImageViewController.h"
 
-@interface ItemsViewController ()
-
+@interface ItemsViewController () <UIPopoverControllerDelegate>
+@property (strong, nonatomic) UIPopoverController *imagePopover;
 @end
+
 @implementation ItemsViewController
 
 - (instancetype)init
@@ -47,22 +51,68 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Create instance of UItableview with default appearance
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    // Get new or recycled cell
+    ItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemCell" forIndexPath:indexPath];
+    
     
     NSArray *items = [[ItemStore sharedStore] allItems];
     Item *item = items[indexPath.row];
     
-    cell.textLabel.text = [item description];
+    // Configure cell with Item
+    cell.nameLabel.text = item.itemName;
+    cell.serialNumberLabel.text = item.serialNumber;
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    
+    cell.thumbnailView.image = item.thumbnail;
+    
+    __weak ItemCell *weakCell = cell;
+    cell.actionBlock = ^{
+        NSLog(@"Going to show image for %@", item);
+        
+        ItemCell *strongCell = weakCell;
+        
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            
+            NSString *itemKey = item.itemKey;
+            
+            // If there is no image, don't display anything
+            UIImage *img = [[ImageStore sharedStore] imageForKey:itemKey];
+            if (!img)   {
+                return;
+            }
+            
+            // Make a rectangle for frame of thumbnail realtive to our table view.
+            CGRect rect = [self.view convertRect:strongCell.thumbnailView.bounds
+                                        fromView:strongCell.thumbnailView];
+            
+            // Create new ImageViewController and set its image
+            ImageViewController *ivc = [[ImageViewController alloc] init];
+            ivc.image = img;
+            
+            // Present 600x600 popover
+            self.imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
+            self.imagePopover.delegate = self;
+            self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
+            [self.imagePopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
+    };
     
     return cell;
 }
 
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.imagePopover = nil;
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    UINib *nib = [UINib nibWithNibName:@"ItemCell" bundle:nil];
+    
+    // Register Nib which contains cell
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"ItemCell"];
     
 }
 

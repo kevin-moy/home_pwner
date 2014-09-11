@@ -85,6 +85,7 @@
     [aCoder encodeObject:self.serialNumber forKey:@"serialNumber"];
     [aCoder encodeObject:self.dateCreated forKey:@"dateCreated"];
     [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
+    [aCoder encodeObject:self forKey:@"thumbnail"];
     
     [aCoder encodeInt:self.valueInDollars forKey:@"valueInDollars"];
 }
@@ -96,10 +97,48 @@
         _serialNumber = [aDecoder decodeObjectForKey:@"serialNumber"];
         _dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
         _itemKey = [aDecoder decodeObjectForKey:@"itemKey"];
+        _thumbnail = [aDecoder decodeObjectForKey:@"thumbnail"];
         
         _valueInDollars = [aDecoder decodeIntForKey:@"valueInDollars"];
     }
     return self;
 }
 
+- (void)setThumbnailFromImage:(UIImage *)image
+{
+    CGSize origImageSize = image.size;
+    
+    // The rectangle of the thumbnail
+    CGRect newRect = CGRectMake(0, 0, 40, 40);
+    
+    // Figure out scaling ratio to make sure maintain same aspect ratio
+    float ratio = MAX(newRect.size.width / origImageSize.width, newRect.size.height / origImageSize.height);
+    
+    // Create transparent bitmap context with scaling factor equal to that of screen
+    UIGraphicsBeginImageContextWithOptions(newRect.size, NO, 0.0);
+    
+    // Create a path that is rounded rectangle
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:newRect cornerRadius:5.0];
+    
+    // Make all subsequent drawing clip to this rounded rectangle
+    [path addClip];
+    
+    // Center the image in the thumbnail rectangle
+    CGRect projectRect;
+    projectRect.size.width = ratio * origImageSize.width;
+    projectRect.size.height = ratio * origImageSize.height;
+    projectRect.origin.x = (newRect.size.width - projectRect.size.width) / 2.0;
+    projectRect.origin.y = (newRect.size.height - projectRect.size.height) / 2.0;
+    
+    // Draw image on it
+    [image drawInRect:projectRect];
+    
+    // Get image from image context; keep it out thumbnail
+    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+    self.thumbnail = smallImage;
+    
+    // Cleanup image context resources;
+    UIGraphicsEndImageContext();
+    
+}
 @end

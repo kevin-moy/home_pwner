@@ -44,6 +44,8 @@
     // get picked image from info dictionary
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
+    [self.item setThumbnailFromImage:image];
+    
     // Store Image in ImageStore for this key
     [[ImageStore sharedStore] setImage:image forKey:self.item.itemKey];
     
@@ -135,6 +137,7 @@
     self.imageView.image = imageToDisplay;
     
 }
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];

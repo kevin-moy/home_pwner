@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		471BA9D319C2570000CA3FFC /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471BA9D219C2570000CA3FFC /* ImageViewController.m */; };
 		4720E0A319AD2E1200D93204 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4720E0A119AD2E1200D93204 /* DetailViewController.m */; };
 		4720E0A419AD2E1200D93204 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4720E0A219AD2E1200D93204 /* DetailViewController.xib */; };
 		479649F019AEB77200B0AC14 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 479649EF19AEB77200B0AC14 /* ImageStore.m */; };
+		47A0E8CC19C1184400C77289 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A0E8CB19C1184400C77289 /* ItemCell.m */; };
+		47A0E8CE19C1190C00C77289 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47A0E8CD19C1190C00C77289 /* ItemCell.xib */; };
 		47E4F7C819A6B04E00CAFC41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E4F7C719A6B04E00CAFC41 /* Foundation.framework */; };
 		47E4F7CA19A6B04E00CAFC41 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E4F7C919A6B04E00CAFC41 /* CoreGraphics.framework */; };
 		47E4F7CC19A6B04E00CAFC41 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E4F7CB19A6B04E00CAFC41 /* UIKit.framework */; };
@@ -38,11 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		471BA9D119C2570000CA3FFC /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		471BA9D219C2570000CA3FFC /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		4720E0A019AD2E1200D93204 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4720E0A119AD2E1200D93204 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		4720E0A219AD2E1200D93204 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		479649EE19AEB77200B0AC14 /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
 		479649EF19AEB77200B0AC14 /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
+		47A0E8CA19C1184400C77289 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
+		47A0E8CB19C1184400C77289 /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
+		47A0E8CD19C1190C00C77289 /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		47E4F7C419A6B04E00CAFC41 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E4F7C719A6B04E00CAFC41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		47E4F7C919A6B04E00CAFC41 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,17 +134,22 @@
 			children = (
 				47E4F7F619A6B1AD00CAFC41 /* ItemsViewController.h */,
 				47E4F7F719A6B1AD00CAFC41 /* ItemsViewController.m */,
+				471BA9D119C2570000CA3FFC /* ImageViewController.h */,
+				471BA9D219C2570000CA3FFC /* ImageViewController.m */,
 				47E4F7F919A6B42400CAFC41 /* Item.h */,
 				47E4F7FA19A6B42400CAFC41 /* Item.m */,
 				47E4F7FC19A6B4B600CAFC41 /* ItemStore.h */,
 				47E4F7FD19A6B4B600CAFC41 /* ItemStore.m */,
 				47E4F7D619A6B04E00CAFC41 /* AppDelegate.h */,
 				47E4F7D719A6B04E00CAFC41 /* AppDelegate.m */,
+				47A0E8CA19C1184400C77289 /* ItemCell.h */,
+				47A0E8CD19C1190C00C77289 /* ItemCell.xib */,
+				47A0E8CB19C1184400C77289 /* ItemCell.m */,
 				4720E0A019AD2E1200D93204 /* DetailViewController.h */,
 				4720E0A119AD2E1200D93204 /* DetailViewController.m */,
+				4720E0A219AD2E1200D93204 /* DetailViewController.xib */,
 				479649EE19AEB77200B0AC14 /* ImageStore.h */,
 				479649EF19AEB77200B0AC14 /* ImageStore.m */,
-				4720E0A219AD2E1200D93204 /* DetailViewController.xib */,
 				47E4F7D919A6B04E00CAFC41 /* Images.xcassets */,
 				47E4F7CE19A6B04E00CAFC41 /* Supporting Files */,
 			);
@@ -248,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47E4F7D219A6B04E00CAFC41 /* InfoPlist.strings in Resources */,
+				47A0E8CE19C1190C00C77289 /* ItemCell.xib in Resources */,
 				47E4F7DA19A6B04E00CAFC41 /* Images.xcassets in Resources */,
 				4720E0A419AD2E1200D93204 /* DetailViewController.xib in Resources */,
 			);
@@ -272,7 +286,9 @@
 				47E4F7FB19A6B42400CAFC41 /* Item.m in Sources */,
 				479649F019AEB77200B0AC14 /* ImageStore.m in Sources */,
 				47E4F7D819A6B04E00CAFC41 /* AppDelegate.m in Sources */,
+				47A0E8CC19C1184400C77289 /* ItemCell.m in Sources */,
 				47E4F7D419A6B04E00CAFC41 /* main.m in Sources */,
+				471BA9D319C2570000CA3FFC /* ImageViewController.m in Sources */,
 				47E4F7FE19A6B4B600CAFC41 /* ItemStore.m in Sources */,
 				4720E0A319AD2E1200D93204 /* DetailViewController.m in Sources */,
 			);
